@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+  <ul>
+    <li>haha</li>
+    <li>haha</li>
+    <li>haha</li>
+    <li>haha</li>
+    <li>haha</li>
+  </ul>
+  <ol>
+    <li>hehe</li>
+    <li>hehe</li>
+    <li>hehe</li>
+    <li>hehe</li>
+    <li>hehe</li>
+  </ol>
+  <script>
+    $(function() {
+      // console.log($('ul li:first'));
+      $('ul li:first').css('color', 'red');
+      $('ul li:last').css('color', 'green');
+      $('ul li:eq(3)').css('color', 'blue');
+      $('ol li:odd').css('color', 'red');
+      $('ol li:even').css('color', 'pink');
+
+    })
+  </script>
+</body>
+</html>

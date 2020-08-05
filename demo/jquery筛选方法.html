@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+  <div class="grandpa">
+    <div class="father">
+      <div class="son">
+
+      </div>
+    </div>
+  </div>
+  <div class="one">
+    <p class="p">我是p</p>
+    <div>
+      <p>我是p1</p>
+    </div>
+  </div>
+  <script>
+    $(function() {
+      console.log($('.son').parent());
+      console.log($('.one').children('p'));
+      $('.one').children('p').css('color', 'red');
+      console.log($('.one').find('p'));
+      console.log($('.p').siblings('p'));
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+      width: 50px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+
+    }
+    a {
+      text-decoration: none;
+    }
+    .left {
+      /* height: 270px;
+      width: 50px; */
+      background-color: red;
+      float: left;
+      border-left: 1px solid black;
+      border-top: 1px solid black;
+
+    }
+    .right {
+      width: 100px;
+      height: 163px;
+      background-color: blue;
+      float: left;
+      border-top: 1px solid black;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+
+    }
+    .right div {
+      width: 100px;
+      height: 165px;
+      text-align: center;
+      line-height: 165px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="left">
+      <ul>
+      <li><a href="#">美靴</a></li>
+      <li><a href="#">美靴</a></li>
+      <li><a href="#">美靴</a></li>
+      <li><a href="#">美靴</a></li>
+      </ul>
+    </div>
+    <div class="right">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+    </div>
+  </div>
+  <script>
+    $(function() {
+      $('.right div').eq(0).siblings().css('display', 'none')
+      $('.left li').mouseover(function() {
+        var index = $(this).index();
+        // console.log(index)
+        $('.right div').eq(index).show();
+        $('.right div').eq(index).siblings().hide();
+      })
+    })
+  </script>
+</body>
+</html>

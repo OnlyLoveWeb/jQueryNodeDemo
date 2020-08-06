@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+  <ol>
+    <li>我是ol的li</li>
+    <li>我是ol的li</li>
+    <li class="item">我是ol的li</li>
+    <li>我是ol的li</li>
+    <li>我是ol的li</li>
+  </ol>
+  <ul>
+    <li>我是ul的li</li>
+    <li>我是ul的li</li>
+    <li>我是ul的li</li>
+    <li>我是ul的li</li>
+    <li>我是ul的li</li>
+  </ul>
+  <div class="current">有current</div>
+  <div>没有current</div>
+  <script>
+    // $(function() {
+    //   $('ol .item').siblings().css('color', 'red')
+    // })
+    // $(function() {
+    //   $('ol .item').nextAll().css('color','red')
+    // })
+    // $(function() {
+    //   $('ol .item').prevAll().css('color', 'red')
+    // })
+    // $(function() {
+    //   $('ul li:eq(2)').css('color', 'green')
+    // })
+    // $(function() {
+    //   $('ul li').eq(2).css('color', 'yellow')
+    // })
+    $(function() {
+      console.log($('div:first').hasClass('current'));
+    })
+  </script>
+</body>
+</html>

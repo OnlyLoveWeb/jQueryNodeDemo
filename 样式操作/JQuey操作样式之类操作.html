@@ -11,15 +11,48 @@
       height: 100px;
       background-color: red;
     }
+    div {
+      border: 1px solid black;
+      width: 100px;
+      height: 100px;
+    }
+    div:nth-child(2) {
+      background-color: blue;
+      width: 100px;
+      height: 100px;
+      transition: all 1s;
+    }
+    .xuanzhuan {
+      transform: rotate(360deg);
+    }
   </style>
 </head>
 <body>
   <div>
 
   </div>
+  <div>
+
+  </div>
   <script>
+    // $(function() {
+    //   var click = 0
+    //   $('div').click(function() {
+    //     if(click == 0) {
+    //       $(this).addClass('current');
+    //       click = 1;
+    //     }
+    //     else {
+    //       $(this).removeClass('current');
+    //       click = 0;
+    //     }
+        
+    //   })
+    // })
     $(function() {
-      $('div').addClass('current');
+      $('div').eq(1).click(function() {
+        $(this).toggleClass('xuanzhuan');
+      })
     })
   </script>
 </body>

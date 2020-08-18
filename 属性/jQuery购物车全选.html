@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<style>
+  div {
+    width: 400px;
+    height: 100px;
+    background-color: #ccc;
+    margin-bottom: 10px;
+  }
+  .all {
+    background-color: pink;
+  }
+</style>
+<body>
+  <div class="all">
+    <input type="checkbox" class="checkall">
+  </div>
+  <div class="child"><input type="checkbox" class="j-child"></div>
+  <div class="child"><input type="checkbox" class="j-child"></div>
+  <div class="child"><input type="checkbox" class="j-child"></div>
+  <div class="all">
+    <input type="checkbox" class="checkall">
+  </div>
+  <script>
+    $(function() {
+      $('.checkall').change(() => {
+        $('.j-child').prop('checked', $('.all').prop('checked'))
+      })
+    })
+  </script>
+</body>
+</html>

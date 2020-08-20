@@ -29,8 +29,16 @@
   </div>
   <script>
     $(function() {
-      $('.checkall').change(() => {
-        $('.j-child').prop('checked', $('.all').prop('checked'))
+      $('.checkall').change(function() {
+        $('.j-child, .checkall').prop('checked', $(this).prop('checked'))
+      })
+      $('.j-child').change(function() {
+        if ($('.j-child:checked').length === $('.child').length) {
+          $('.checkall').prop('checked', true)
+        } else {
+          $('.checkall').prop('checked',false)
+        }
+
       })
     })
   </script>

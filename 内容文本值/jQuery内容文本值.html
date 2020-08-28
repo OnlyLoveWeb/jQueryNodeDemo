@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+  <div>
+    <span>i am content</span>
+  </div>
+  <input type="text" value="请输入内容">
+  <script>
+    $(function() {
+      // 获取设置元素的内容html()
+      console.log($('div').html())
+      // 设置元素的内容
+      $('div').html('123')
+      // 获取元素文本的内容
+      console.log($('div').text())
+      $('div').text('321')
+      console.log($('input').val())
+      $('input').val(111)
+    })
+  </script>
+</body>
+</html>

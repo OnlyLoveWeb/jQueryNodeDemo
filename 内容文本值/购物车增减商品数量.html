@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<style>
+  div {
+    width: 400px;
+    height: 100px;
+    background-color: #ccc;
+    margin-bottom: 10px;
+    
+  }
+  .all {
+    background-color: pink;
+  }
+  .child {
+    position: relative;
+  }
+  .input {
+    width: 50px;
+    position: absolute;
+    left: 100px;
+    top: 30px
+  }
+  .decrement {
+    position: absolute;
+    top: 30px;
+    left:75px;
+  }
+  .increment {
+    position: absolute;
+    top: 30px;
+    left: 162px;
+  }
+</style>
+<body>
+  <div class="all">
+    <input type="checkbox" class="checkall">
+  </div>
+  <div class="child">
+    <input type="checkbox" class="j-child">
+    <button class="decrement">-</button>
+    <input class="input" type="text" value="1">
+    <button class="increment">+</button>
+  </div>
+  <div class="child">
+    <input type="checkbox" class="j-child">
+    <button class="decrement">-</button>
+    <input class="input" type="text" value="1">
+    <button class="increment">+</button>
+  </div>
+    
+  <div class="child">
+    <input type="checkbox" class="j-child">
+    <button class="decrement">-</button>
+    <input class="input" type="text" value="1">
+    <button class="increment">+</button>
+  </div>
+  <div class="all">
+    <input type="checkbox" class="checkall">
+  </div>
+  <script>
+    $(function() {
+      $('.checkall').change(function() {
+        $('.j-child, .checkall').prop('checked', $(this).prop('checked'))
+      })
+      $('.j-child').change(function() {
+        if ($('.j-child:checked').length === $('.child').length) {
+          $('.checkall').prop('checked', true)
+        } else {
+          $('.checkall').prop('checked',false)
+        }
+      })
+      $('.increment').click(function() {
+        var n = $(this).siblings('.input').val();
+        n++;
+        $(this).siblings('.input').val(n);
+      })
+      $('.decrement').click(function() {
+        var n = $(this).siblings('.input').val()
+        if(n == 1) {
+          return false
+        }
+        n--;
+        $(this).siblings('.input').val(n);
+      })
+    })
+  </script>
+</body>
+</html>

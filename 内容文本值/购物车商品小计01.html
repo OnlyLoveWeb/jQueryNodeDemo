@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<style>
+  div {
+    width: 400px;
+    height: 100px;
+    background-color: #ccc;
+    margin-bottom: 10px;
+    
+  }
+  .all {
+    background-color: pink;
+    position: relative;
+  }
+  .child {
+    position: relative;
+  }
+  .input {
+    width: 50px;
+    position: absolute;
+    left: 100px;
+    top: 30px
+  }
+  .decrement {
+    position: absolute;
+    top: 30px;
+    left:75px;
+  }
+  .increment {
+    position: absolute;
+    top: 30px;
+    left: 162px;
+  }
+  .p-price {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+  }
+  .p-sum {
+    position: absolute;
+    top: 30px;
+    left: 189px;
+  }
+  .all-price {
+    position: absolute;
+    top: 30px;
+    left: 100px;
+  }
+</style>
+<body>
+  <div class="all">
+    <input type="checkbox" class="checkall">
+  </div>
+  <div class="child">
+    <span class="p-price">￥12.6</span>
+    <input type="checkbox" class="j-child">
+    <button class="decrement">-</button>
+    <input class="input" type="text" value="1">
+    <button class="increment">+</button>
+    <span class="p-sum">￥12.6</span>
+  </div>
+  <div class="child">
+    <span class="p-price">￥13.6</span>
+    <input type="checkbox" class="j-child">
+    <button class="decrement">-</button>
+    <input class="input" type="text" value="1">
+    <button class="increment">+</button>
+    <span class="p-sum">￥13.6</span>
+  </div>
+    
+  <div class="child">
+    <span class="p-price">￥14.6</span>
+    <input type="checkbox" class="j-child">
+    <button class="decrement">-</button>
+    <input class="input" type="text" value="1">
+    <button class="increment">+</button>
+    <span class="p-sum">￥14.6</span>
+  </div>
+  <div class="all">
+    <input type="checkbox" class="checkall">
+    <span class="all-price">1</span>
+  </div>
+  <script>
+    $(function() {
+      $('.checkall').change(function() {
+        $('.j-child, .checkall').prop('checked', $(this).prop('checked'))
+      })
+      $('.j-child').change(function() {
+        if ($('.j-child:checked').length === $('.child').length) {
+          $('.checkall').prop('checked', true)
+        } else {
+          $('.checkall').prop('checked',false)
+        }
+      })
+      $('.increment').click(function() {
+        var n = $(this).siblings('.input').val();
+        n++;
+        $(this).siblings('.input').val(n);
+        var p = $(this).siblings('.p-price').html().substr(1) * $(this).siblings('.input').val();
+        $(this).siblings('.p-sum').html('￥' + p.toFixed(2))
+      })
+      $('.decrement').click(function() {
+        var n = $(this).siblings('.input').val()
+        if(n == 1) {
+          return false
+        }
+        n--;
+        $(this).siblings('.input').val(n);
+        var p = $(this).siblings('.p-price').html().substr(1) * $(this).siblings('.input').val();
+        $(this).siblings('.p-sum').html('￥' + p.toFixed(2))
+      })
+      $('.input').change(function() {
+        var p = $(this).siblings('.p-price').html()
+        $(this).siblings('.p-sum').html('￥' + (p.substr(1) * $(this).val()).toFixed(2))
+      })
+      // 定义一个全局变量存储总计
+      var start_all_price = 0;
+      // for循环，计算初始总计并填入总计区域
+      for(let i = 0; i < $('.p-sum').length; i++){
+        start_all_price = start_all_price + parseFloat($('.p-sum')[i].innerHTML.substr(1))
+      }
+      $('.all-price').html('￥' + start_all_price)
+      // 当点击+按钮时，重新计算一下总计
+      $('.increment').click(function() {
+        start_all_price = 0
+        for(let i = 0; i < $('.p-sum').length; i++){
+        start_all_price = start_all_price + parseFloat($('.p-sum')[i].innerHTML.substr(1))
+      }
+        $('.all-price').html('￥' + start_all_price.toFixed(2))
+      })
+      // 当点击-按钮时，重建计算一下总计
+      $('.decrement').click(function() {
+        start_all_price = 0
+        for(let i = 0; i < $('.p-sum').length; i++){
+        start_all_price = start_all_price + parseFloat($('.p-sum')[i].innerHTML.substr(1))
+      }
+        $('.all-price').html('￥' + start_all_price.toFixed(2))
+      })
+      // 当文本框发生改变时，重新计算一下总计
+      $('.input').change(function() {
+        start_all_price = 0
+        for(let i = 0; i < $('.p-sum').length; i++){
+        start_all_price = start_all_price + parseFloat($('.p-sum')[i].innerHTML.substr(1))
+      }
+        $('.all-price').html('￥' + start_all_price.toFixed(2))
+      })
+    })
+  </script>
+</body>
+</html>

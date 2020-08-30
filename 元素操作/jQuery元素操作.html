@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <script>
+    $(function() {
+      var list = ['red', 'green', 'pink']
+      $("div").each(function(index, domEle) {
+        $(domEle).css('color', list[index])
+      })
+    })
+  </script>
+</body>
+</html>

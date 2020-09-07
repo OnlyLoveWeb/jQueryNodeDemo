@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+    }
+    .current {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <script>
+    $(function() {
+      // $('div').on({
+      //   mouseenter: function() {
+      //     $('div').css("backgroundColor", "red")
+      //   },
+      //   mouseout: function() {
+      //     $('div').css("backgroundColor", "black")
+      //   },
+      //   click: function() {
+      //     $('div').css("backgroundColor", "green")
+      //   }  
+      // })
+      $('div').on("mouseenter mouseleave", function() {
+        $(this).toggleClass("current")
+      })
+    })
+  </script>
+</body>
+</html>

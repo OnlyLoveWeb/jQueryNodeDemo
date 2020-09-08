@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .top {
+      margin: 100px 0px 0px 100px;
+      border: 1px solid black;
+      width: 800px;
+      position: relative;
+    }
+    /* .top::after, .top::before {
+      content: "";
+      display: table;
+    }
+    .top::after {
+      clear: both;
+    }
+    .top {
+      *zoom: 1;
+    } */
+    textarea {
+      resize: none;
+      height: 100px;
+      width: 200px;
+      margin-left: 300px;
+      margin-top: 10px;
+    }
+    span {
+      position: absolute;
+      left: 232px;
+      top: 91px;
+    }
+    button {
+      position: absolute;
+      right: 265px;
+      top: 91px;
+    }
+    ul {
+      position: relative;
+    }
+    li {
+      list-style: none;
+      margin-left: 299px;
+      border-bottom: 1px dashed #ccc;
+      width: 200px;
+      height: 26px;
+      overflow: hidden;
+      display: none;
+      position: relative;
+    }
+    a {
+      position: absolute;
+      right: 0px;
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <span>微博发布</span>
+    <textarea name="text" id="" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <ul>
+
+    </ul>
+  </div>
+  <script>
+    $(function() {
+      $("button").on("click", function() {
+        var li = $("<li></li>");
+        
+        li.html($("textarea").val() + "<a href='javascript:;'>删除</a>");
+        $("ul").prepend(li);
+        li.slideDown();
+        $("textarea").val("");
+      })
+      $("ul").on("click", "a", function() {
+        $(this).parent().slideUp(function() {
+          $(this).remove();
+        });
+      })
+    })
+  </script>
+</body>
+</html>

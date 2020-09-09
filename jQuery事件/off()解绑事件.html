@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <p>我是屁</p>
+  <script>
+    $(function() {
+      $("div").on({
+        mouseenter: function() {
+          $(this).css("backgroundColor", "red");
+        },
+        mouseleave: function() {
+          $(this).css("backgroundColor", "blue");
+        }
+      })
+      $("ul").on("click", "li", function() {
+        $(this).siblings().css("backgroundColor", "")
+        $(this).css("backgroundColor", "red");
+      })
+      $("p").one("click", function() {
+        alert("我是屁");
+      })
+      // $("div").off();    //解除所有事件
+      $("div").off("mouseleave");
+      $("ul").off("click", "li")  //解除事件委托
+    })
+  </script>
+</body>
+</html>

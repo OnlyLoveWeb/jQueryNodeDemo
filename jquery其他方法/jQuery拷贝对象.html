@@ -7,6 +7,33 @@
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
-  
+  <script>
+    $(function() {
+      var targetObj = {
+        a: 1
+      };
+      var obj = {
+        a: 2,
+        b: 3,
+        msg: {
+          age: 10
+        }
+      }
+      //目标对象没有的数据，直接拷贝过去，已有的数据会被覆盖
+      //对于复杂对象，目标对象拷贝时，获得的是被拷贝对象的地址，
+      //如果修改目标对象的内容，被拷贝对象的内容也会相同的变化，
+      //因为他们都指向的是同一个对象；
+      // $.extend(targetObj, obj);     
+      // console.log(targetObj);
+      // targetObj.msg.age = 20;
+      // console.log(targetObj);
+      // console.log(obj);
+      // 深拷贝，拷贝的是被拷贝的内容放到新开辟的空间里，所以，
+      //修改目标对象，并不会影响被拷贝的对象
+      $.extend(true, targetObj, obj);
+      targetObj.msg.age = 30;
+      console.log(obj);
+    })
+  </script>
 </body>
 </html>

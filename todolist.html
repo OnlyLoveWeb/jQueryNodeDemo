@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .content {
+      background-color: #ccc;
+      height: 1000px;
+      position: relative;
+    }
+    .top {
+      height: 60px;
+      background-color: black;
+    }
+
+    .ready {
+      position: relative;
+    }
+    .top-input {
+      border-radius: 5px;
+      position: absolute;
+      left: 800px;
+      top: 14px;
+      width: 400px;
+      height: 30px;
+    }
+    .top h2 {
+      position: absolute;
+      left: 600px;
+      top: 13px;
+      color: white;
+    }
+    .ready h2 {
+      position: absolute;
+      left: 600px;
+    }
+    .ready span, .done span {
+      width: 20px;
+      height: 20px;
+      background-color: pink;;
+      border-radius: 50%;
+      display: inline-block;
+      position: absolute;
+      left: 629px;
+      top: 10px;
+      font-size: 4px;
+      text-align: center;
+    }
+    .done h2 {
+      position: absolute;
+      left: 600px;
+      top: 100px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="top">
+    <h2>ToDoList<span></span></h2>
+    <input type="text" placeholder="添加ToDo" class="top-input">
+  </div>
+  <div class="content">
+    <div class="ready">
+      <h2>正在进行 <span>1</span></h2>
+      <ol></ol>
+    </div>
+    <div class="done">
+      <h2>已经完成 <span>1</span></h2>
+      <ul></ul>
+    </div>
+  </div>
+  
+</body>
+</html>
